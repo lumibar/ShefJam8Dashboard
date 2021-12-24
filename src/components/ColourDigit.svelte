@@ -6,4 +6,4 @@
 	}
 </script>
 
-{#if digit === '8'}<span class="text-red-500">&#8734</span>{:else}{digit}{/if}
+{#if digit === '8'}<span class="text-red-500">8</span>{:else}{digit}{/if}
