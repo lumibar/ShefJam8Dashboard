@@ -1,0 +1,47 @@
+{
+    "title": "ShefJam 8",
+    "start_time": "18:00:00 02-11-2022",
+    "end_time": "14:00:00 02-13-2022",
+    "events": [
+        {
+            "title" : "Introduction Talk",
+            "time" : "14:49:00 01-14-2022"
+        },
+        {
+            "title" : "Dinner",
+            "time" : "19:00:00 02-11-2022"
+        },
+        {
+            "title" : "Social Event 1",
+            "time" : "22:00:00 02-11-2022"
+        },
+        {
+            "title" : "Breakfast",
+            "time" : "08:00:00 02-12-2022"
+        },
+        {
+            "title" : "Lunch",
+            "time" : "13:00:00 02-12-2022"
+        },
+        {
+            "title" : "Coding Event",
+            "time" : "14:00:00 02-12-2022"
+        },
+        {
+            "title" : "Dinner",
+            "time" : "19:00:00 02-12-2022"
+        },
+        {
+            "title" : "Social Event 2",
+            "time" : "21:00:00 02-12-2022"
+        },
+        {
+            "title" : "Breakfast",
+            "time" : "08:00:00 02-13-2022"
+        },
+        {
+            "title" : "Prizegiving",
+            "time" : "14:00:00 02-13-2022"
+        }
+    ]
+}
