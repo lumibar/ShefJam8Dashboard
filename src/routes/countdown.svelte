@@ -21,7 +21,7 @@
 	import ColourNum from '$lib/ColourNum.svelte';
 	import Counter from '$lib/Counter.svelte';
 	import { curr_time } from '$lib/stores';
-	import ParticleBack from '$lib/StarBackground.svelte';
+	
 	import { onMount } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
 	import { flip } from 'svelte/animate';
@@ -81,5 +81,5 @@
 			</p>
 		{/each}
 	{/if}
-	<ParticleBack />
+	
 </div>
