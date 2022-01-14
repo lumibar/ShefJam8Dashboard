@@ -52,4 +52,4 @@ const particlesConfig = {
 };
 </script>
 
-<Particles id="tsparticles" options="{particlesConfig}" />
+<Particles id="tsparticles" options="{particlesConfig}" class="-z-10" />
