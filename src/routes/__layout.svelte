@@ -1,7 +1,8 @@
 <script>
 	import '../app.scss';
-	import ParticleBack from '$lib/StarBackground.svelte';
+	import Particles from "svelte-particles";
+	import { starBackground } from "$lib/particleConfigs"
 </script>
 
-<slot class="z-10"/>
-<ParticleBack />
+<slot />
+<Particles id="starBackground" options="{starBackground}"  />
