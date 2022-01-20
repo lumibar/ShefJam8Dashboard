@@ -95,15 +95,15 @@ export const confettiCorners = {
                 top: "none"
             },
             "speed": {
-                "min": 100,
-                "max": 150
+                "min": 25,
+                "max": 75
             },
             "angle": {
-                "value": 35
+                "value": 15
             }
         },
         "number": {
-            "limit": 450,
+            "limit": 250,
             "value": 0
         },
         "opacity": {
@@ -198,8 +198,8 @@ export const confettiCorners = {
             "wait": false
         },
         "rate": {
-            "quantity": 10,
-            "delay": 0.1
+            "quantity": 5,
+            "delay": 0.15
         },
         "shape": "square",
         "startCount": 0,
@@ -232,8 +232,8 @@ export const confettiCorners = {
             "wait": false
         },
         "rate": {
-            "quantity": 10,
-            "delay": 0.1
+            "quantity": 5,
+            "delay": 0.15
         },
         "shape": "square",
         "startCount": 0,
@@ -257,5 +257,5 @@ export const confettiCorners = {
             }
         }
     },
-]
+    ]
 }

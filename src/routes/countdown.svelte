@@ -1,4 +1,5 @@
 <script lang="ts" context="module">
+	import {ISOtoDate} from "$lib/utils"
 	export const load = async ({ fetch }) => {
 		try {
 			const [r_start_time, r_end_time, r_events] = await Promise.all([
@@ -13,10 +14,10 @@
 			]);
 			return {
 				props: {
-					start_time: new Date(start_time.start_time),
-					end_time: new Date(end_time.end_time),
+					start_time: ISOtoDate(start_time.start_time),
+					end_time: ISOtoDate(end_time.end_time),
 					all_events: events.map((event) => {
-						event.time = new Date(event.time);
+						event.time = ISOtoDate(event.time);
 						return event;
 					})
 				}
@@ -47,6 +48,10 @@
 		.slice(0, 3);
 </script>
 
+<svelte:head>
+	<title>ShefJam 8 - Countdown</title>
+</svelte:head>
+
 <div class="flex flex-col h-screen w-max justify-center m-auto align-middle">
 	<p class="text-4xl font-extrabold tracking-widest text-violet-400 align-middle">
 		ShefJam <span class="text-vertical align-bottom	"><ColourNum number={'8'} /></span>
@@ -73,7 +78,7 @@
 				animate:flip
 				in:fade
 				out:fly={{ x: 100 }}
-				class="text-3xl tracking-wider text-violet-400 text-center {i === 0
+				class="text-3xl tracking-wider text-violet-400 m-1 text-center {i === 0
 					? 'opacity-100'
 					: i === 1
 					? 'opacity-60'
