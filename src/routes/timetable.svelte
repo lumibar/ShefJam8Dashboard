@@ -1,23 +1,25 @@
 <script lang="ts" context="module">
+	import {ISOtoDate} from "$lib/utils"
+
 	export const prerender = true;
 	export const load = async ({ fetch }) => {
 		try {
-			const [r_start_time, r_end_time, r_events] = await Promise.all([
-				fetch('/api/startTime'),
-				fetch('/api/endTime'),
+			const [/*r_start_time, r_end_time,*/ r_events] = await Promise.all([
+				//fetch('/api/startTime'),
+				//fetch('/api/endTime'),
 				fetch('/api/events/eventList?limit=0&field=title&field=time&field=description')
 			]);
-			const [start_time, end_time, events] = await Promise.all([
-				r_start_time.json(),
-				r_end_time.json(),
+			const [/*start_time, end_time,*/ events] = await Promise.all([
+				//r_start_time.json(),
+				//r_end_time.json(),
 				r_events.json()
 			]);
 			return {
 				props: {
-					start_time: new Date(start_time.start_time),
-					end_time: new Date(end_time.end_time),
+					//start_time: new Date(start_time.start_time),
+					//end_time: new Date(end_time.end_time),
 					all_events: events.map((event) => {
-						event.time = new Date(event.time);
+						event.time = ISOtoDate(event.time);
 						return event;
 					})
 				}
@@ -26,11 +28,13 @@
 			throw Error('error in load');
 		}
 	};
+
+	
 </script>
 
 <script lang="ts">
-	export let start_time: Date;
-	export let end_time: Date;
+	//export let start_time: Date;
+	//export let end_time: Date;
 	export let all_events: {
 		title: string;
 		time: Date;
@@ -42,8 +46,12 @@
 	const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 </script>
 
+<svelte:head>
+	<title>ShefJam 8 - Timetable</title>
+</svelte:head>
+
 <div class="flex w-full h-screen justify-center content-center font text-base">
-	<div class="flex flex-col w-2/5 h-min bg-gray-400 rounded self-center">
+	<div class="flex flex-col w-2/5 h-min rounded self-center">
 		{#each all_events as event (event.title
 			.toLowerCase()
 			.replaceAll(' ', '-') + '-' + event.time.getDate() + '-' + event.time.getMonth())}

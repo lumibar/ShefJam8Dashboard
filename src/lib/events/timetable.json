@@ -1,49 +1,49 @@
 {
     "title": "ShefJam 8",
-    "start_time": "13:32:00 01-16-2022",
-    "end_time": "13:34:00 01-16-2022",
+    "start_time":   "2022-02-11T18:00:00+00:00",
+    "end_time":     "2022-02-13T16:00:00+00:00",
     "events": [
         {
             "title" : "Introduction Talk",
-            "time" : "14:49:00 01-14-2022",
+            "time" : "2022-01-14T09:12:23+00:00",
             "description": "A brief talk to introduce the event."
         },
         {
             "title" : "Dinner",
-            "time" : "19:00:00 02-11-2022",
+            "time" : "2022-02-11T19:00:00+00:00",
             "description": "Pizza for dinner. Vegetarian and vegan options are available."
         },
         {
             "title" : "Social Event 1",
-            "time" : "22:00:00 02-11-2022"
+            "time" : "2022-02-11T22:00:00+00:00"
         },
         {
             "title" : "Breakfast",
-            "time" : "08:00:00 02-12-2022"
+            "time" : "2022-02-12T08:00:00+00:00"
         },
         {
             "title" : "Lunch",
-            "time" : "13:00:00 02-12-2022"
+            "time" : "2022-02-12T13:00:00+00:00"
         },
         {
             "title" : "Coding Event",
-            "time" : "14:00:00 02-12-2022"
+            "time" : "2022-02-12T14:00:00+00:00"
         },
         {
             "title" : "Dinner",
-            "time" : "19:00:00 02-12-2022"
+            "time" : "2022-02-12T19:00:00+00:00"
         },
         {
             "title" : "Social Event 2",
-            "time" : "21:00:00 02-12-2022"
+            "time" : "2022-02-12T21:00:00+00:00"
         },
         {
             "title" : "Breakfast",
-            "time" : "08:00:00 02-13-2022"
+            "time" : "2022-02-13T08:00:00+00:00"
         },
         {
             "title" : "Prizegiving",
-            "time" : "14:00:00 02-13-2022"
+            "time" : "2022-02-13T14:00:00+00:00"
         }
     ]
 }
