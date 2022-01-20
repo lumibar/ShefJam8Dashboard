@@ -5,19 +5,20 @@
     export let date_limit:number = 3;
 	export let extra_space: boolean;
 	import { curr_time } from '$lib/stores';
-	import ColourNum from './ColourNum.svelte';
+	import { TimeUnits } from '$lib/constants';
+	import ColourNum from '$lib/ColourNum.svelte';
 	let days: number, hours: number, minutes: number, seconds: number;
 
 	$: {
 		let distance = target_time ? target_time.getTime() - $curr_time.getTime() : 0;
 
 		if (distance >= 0) {
-		days = Math.floor(distance / (1000 * 60 * 60 * 24));
+		days = Math.floor(distance / TimeUnits.DAY);
 		hours =
-			Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)) +
+			Math.floor((distance % TimeUnits.DAY) / TimeUnits.HOUR) +
 			(days < 3 ? days * 24 : 0);
-		minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-		seconds = Math.floor((distance % (1000 * 60)) / 1000);
+		minutes = Math.floor((distance % TimeUnits.HOUR) / TimeUnits.MINUTE);
+		seconds = Math.floor((distance % TimeUnits.MINUTE) / TimeUnits.SECOND);
 		} else {
 			days = hours = minutes = seconds = 0;
 		}
