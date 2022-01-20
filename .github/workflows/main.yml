@@ -15,7 +15,6 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-
-
       - uses: pnpm/action-setup@v2.0.1
         with:
           version: 6.0.2
@@ -30,5 +29,6 @@ jobs:
           filename: 'release.zip'
       - name: Release
         uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
         with:
           files: 'release.zip'
