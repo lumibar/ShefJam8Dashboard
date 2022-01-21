@@ -1,5 +1,4 @@
 FROM node:alpine AS builder
-
 RUN adduser -D -h /home/container container && mkdir -p /home/container/.tmp && npm install -g pnpm && pnpm config set store-dir /home/container/.pnpm-store && \
     npm config set store-dir /home/container/.pnpm-store
 
@@ -17,6 +16,7 @@ COPY . .
 RUN pnpm i && pnpm build
 
 FROM node:16 AS main
+LABEL org.opencontainers.image.source https://github.com/lumibar/sj8-counter
 COPY --from=builder /home/container/app/build /home/container/app/package.json ./
 EXPOSE 3000
 
