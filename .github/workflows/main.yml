@@ -14,7 +14,6 @@ jobs:
         with:
           username: ${{ github.actor }}
           password: ${{ secrets.CR_PAT }}
-          push: true
           registry: ghcr.io
           repository: lumibar/sj8-counter
           tags: ${{ github.sha }}
