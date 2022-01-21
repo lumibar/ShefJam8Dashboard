@@ -18,5 +18,5 @@ jobs:
       uses: docker/build-push-action@v2.8.0
       with:
         push: true
-        tags: ghcr.io/lumibar/sj8counter:latest
+        tags: lumibar/sj8counter:latest
 
