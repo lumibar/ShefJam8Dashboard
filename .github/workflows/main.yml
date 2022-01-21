@@ -13,8 +13,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITGUB_PAT }}
           registry: ghcr.io
           repository: lumibar/sj8-counter
           tags: ${{ github.sha }}
