@@ -39,8 +39,6 @@
 	import { confettiCorners } from '$lib/particleConfigs';
 	import logo from "$lib/logo.png?w=100;200;400&format=webp&srcset";
 
-	console.log(logo)
-
 	export let start_time: Date;
 	export let end_time: Date;
 	export let all_events: { title: string; time: Date }[];
@@ -60,15 +58,15 @@
 
 
 <a href="/timetable">
-	<img srcset={logo} type="image/webp" alt="ShefJam 8 Logo" class="absolute left-4 top-4 w-40" />
+	<img srcset={logo} type="image/webp" alt="ShefJam 8 Logo" class="absolute left-4 top-4 w-20 sm:w-30 md:w-40" />
 </a>
 <div class="flex flex-col h-screen w-max justify-center m-auto align-middle">
-	<p class="text-4xl font-extrabold tracking-widest text-violet-400 align-middle">
+	<p class="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-widest text-violet-400 align-middle">
 		ShefJam <span class="text-vertical align-bottom	"><ColourNum number={'8'} /></span>
 	</p>
 	<div class="z-10">
 		<Counter
-			class="text-center font-sans font-bold text-9xl text-violet-300"
+			class="text-center font-sans font-bold text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-violet-300"
 			target_time={start_time > $curr_time ? start_time : end_time}
 			extra_space={true}
 		/>

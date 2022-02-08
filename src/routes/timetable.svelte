@@ -81,10 +81,10 @@
 
 
 <a href="/">
-	<img srcset={logo} type="image/webp" alt="ShefJam 8 Logo" class="absolute left-4 top-4 w-40" />
+	<img srcset={logo} type="image/webp" alt="ShefJam 8 Logo" class="absolute left-4 top-4 w-20 sm:w-30 md:w-40" />
 </a>
 <div class="flex w-full h-screen justify-center content-center font text-base">
-	<div class="flex flex-col w-2/5 h-min rounded self-center">
+	<div class="flex flex-col w-4/5 sm:w-3/5 md:w-2/5 h-min rounded self-center">
 		{#each ["Fri", "Sat", "Sun"] as boxDay (boxDay)}
 			<h3 class="ml-5 font-bold text-xl text-violet-500">{boxDay}</h3>
 			<SquareBracket class="p-2" --colour="rgb(139 92 246 / 1)" --border="3px">
