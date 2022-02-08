@@ -33,56 +33,95 @@
 </script>
 
 <script lang="ts">
+	import { curr_time } from "$lib/stores";
 	//export let start_time: Date;
 	//export let end_time: Date;
 	export let all_events: {
+		id?: string;
 		title: string;
 		time: Date;
 		description?: string;
 	}[];
 
+	all_events = all_events.map((event) => {
+		const id = event.title.toLowerCase().replaceAll(' ', '-') + '-' + event.time.getDate() + '-' + event.time.getMonth()
+		return {
+			...event,
+			id
+		}
+	})
+
+	let displayDescription = {}
+
+	
+
+	let nextEvent = all_events.filter((event) => {
+		return event.time > $curr_time;
+	}).sort((a,b) => {
+		return a.time.getTime() - b.time.getTime();
+	})[0].id;
+
+	all_events.forEach((event) => {
+		displayDescription[event.id] = event.id === nextEvent ? true : false;
+	})
+
 	import ColourNum from '$lib/ColourNum.svelte';
+	import { flip } from 'svelte/animate';
+	import logo from "$lib/logo.png?w=100;200;400&format=webp&srcset";
+	import SquareBracket from "$lib/SquareBracket.svelte";
 
 	const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 </script>
+
+
 
 <svelte:head>
 	<title>ShefJam 8 - Timetable</title>
 </svelte:head>
 
+
+<a href="/">
+	<img srcset={logo} type="image/webp" alt="ShefJam 8 Logo" class="absolute left-4 top-4 w-40" />
+</a>
 <div class="flex w-full h-screen justify-center content-center font text-base">
 	<div class="flex flex-col w-2/5 h-min rounded self-center">
-		{#each all_events as event (event.title
-			.toLowerCase()
-			.replaceAll(' ', '-') + '-' + event.time.getDate() + '-' + event.time.getMonth())}
-			<div
-				class="m-1 bg-white p-2 rounded"
-				id={event.title.toLowerCase().replaceAll(' ', '-') +
-					'-' +
-					event.time.getDate() +
-					'-' +
-					event.time.getMonth()}
-			>
-				<div class="flex justify-between text-lg font-bold ">
-					<span>{event.title}</span>
-					<span
-						>{days[event.time.getDay()]} - <ColourNum
-							number={event.time.getHours().toLocaleString('en-GB', {
-								minimumIntegerDigits: 2,
-								useGrouping: false
-							})}
-						/>:<ColourNum
-							number={event.time.getMinutes().toLocaleString('en-GB', {
-								minimumIntegerDigits: 2,
-								useGrouping: false
-							})}
-						/></span
-					>
+		{#each ["Fri", "Sat", "Sun"] as boxDay (boxDay)}
+			<h3 class="ml-5 font-bold text-xl text-violet-500">{boxDay}</h3>
+			<SquareBracket class="p-2" --colour="rgb(139 92 246 / 1)" --border="3px">
+			{#each all_events.filter((event)=>{return days[event.time.getDay()]==boxDay}) as event (event.id)}
+				<div
+					class="transition-all m-1 bg-violet-400 p-2 rounded"
+					id={event.id}
+					on:click="{
+						(event) => {
+							displayDescription[event.currentTarget.id] = !displayDescription[event.currentTarget.id]
+						}
+					}"
+					animate:flip
+				>
+					<div class="flex justify-between text-lg font-bold ">
+						<span>{event.title}</span>
+						<span
+							><span>
+								<ColourNum
+								number={event.time.getHours().toLocaleString('en-GB', {
+									minimumIntegerDigits: 2,
+									useGrouping: false
+								})}
+							/>:<ColourNum
+								number={event.time.getMinutes().toLocaleString('en-GB', {
+									minimumIntegerDigits: 2,
+									useGrouping: false
+								})}
+							/></span>  {#if event.description}<span>{displayDescription[event.id] ? ' ▲' : ' ▼'}</span>{/if}</span
+						>
+					</div>
+					{#if displayDescription[event.id] && event.description}
+						<p class="px-4">{event.description}</p>
+					{/if}
 				</div>
-				{#if event.description}
-					<p class="px-4">{event.description}</p>
-				{/if}
-			</div>
+			{/each}
+			</SquareBracket>
 		{/each}
 	</div>
 </div>

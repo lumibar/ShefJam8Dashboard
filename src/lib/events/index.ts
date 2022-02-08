@@ -17,7 +17,7 @@ export const getEvents = async (limit = 3, fields: string[]) => {
         return date1.getTime() - date2.getTime()
     })
     if (limit === 0) return events.map((event) => {
-        let out = {}
+        const out = {}
         fields.forEach((field) => {
             out[field] = event[field]
         });
@@ -26,7 +26,7 @@ export const getEvents = async (limit = 3, fields: string[]) => {
     limit = limit < events.length ? limit : events.length - 1
 
     return events.slice(0, limit).map((event) => {
-        let out = {}
+        const out = {}
         fields.forEach((field) => {
             out[field] = event[field]
         })
