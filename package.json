@@ -13,6 +13,7 @@
 	},
 	"devDependencies": {
 		"@rodneylab/sveltekit-components": "^0.2.10",
+		"@sveltejs/adapter-netlify": "^1.0.0-next.45",
 		"@sveltejs/adapter-node": "^1.0.0-next.56",
 		"@sveltejs/adapter-static": "^1.0.0-next.26",
 		"@sveltejs/kit": "1.0.0-next.233",

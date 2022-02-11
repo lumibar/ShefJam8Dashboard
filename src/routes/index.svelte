@@ -57,8 +57,9 @@
 </svelte:head>
 
 
-<a href="/timetable">
-	<img srcset={logo} type="image/webp" alt="ShefJam 8 Logo" class="absolute left-4 top-4 w-20 sm:w-30 md:w-40" />
+<a sveltekit:prefetch href="/timetable">
+	<img srcset={logo} type="image/webp" alt="ShefJam 8 Logo" loading="eager"
+    decoding="async" class="absolute left-4 top-4 w-20 sm:w-30 md:w-40" />
 </a>
 <div class="flex flex-col h-screen w-max justify-center m-auto align-middle">
 	<p class="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-widest text-violet-400 align-middle">

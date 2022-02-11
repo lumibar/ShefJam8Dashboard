@@ -13,7 +13,8 @@
         },
         {
             "title" : "Social Event 1",
-            "time" : "2022-02-11T22:00:00+00:00"
+            "time" : "2022-02-11T22:00:00+00:00",
+            "description" : "A break from coding to take part in a social activity or game (e.g. werewolf)."
         },
         {
             "title" : "Breakfast",

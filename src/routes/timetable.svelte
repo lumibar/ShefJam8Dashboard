@@ -67,6 +67,7 @@
 
 	import ColourNum from '$lib/ColourNum.svelte';
 	import { flip } from 'svelte/animate';
+	import { fly } from 'svelte/transition';
 	import logo from "$lib/logo.png?w=100;200;400&format=webp&srcset";
 	import SquareBracket from "$lib/SquareBracket.svelte";
 
@@ -79,9 +80,8 @@
 	<title>ShefJam 8 - Timetable</title>
 </svelte:head>
 
-
-<a href="/">
-	<img srcset={logo} type="image/webp" alt="ShefJam 8 Logo" class="absolute left-4 top-4 w-20 sm:w-30 md:w-40" />
+<a sveltekit:prefetch href="/">
+	<img srcset={logo} type="image/webp" alt="ShefJam 8 Logo" class="absolute left-4 top-4 w-20 sm:w-30 md:w-40 transi" />
 </a>
 <div class="flex w-full h-screen justify-center content-center font text-base">
 	<div class="flex flex-col w-4/5 sm:w-3/5 md:w-2/5 h-min rounded self-center">
@@ -90,7 +90,7 @@
 			<SquareBracket class="p-2" --colour="rgb(139 92 246 / 1)" --border="3px">
 			{#each all_events.filter((event)=>{return days[event.time.getDay()]==boxDay}) as event (event.id)}
 				<div
-					class="transition-all m-1 bg-violet-400 p-2 rounded"
+					class="transition-all ease-in-out m-1 bg-violet-400 p-2 rounded"
 					id={event.id}
 					on:click="{
 						(event) => {
@@ -117,7 +117,7 @@
 						>
 					</div>
 					{#if displayDescription[event.id] && event.description}
-						<p class="px-4">{event.description}</p>
+						<p in:fly="{{ y: -20, duration: 400 }}" class="px-4">{event.description}</p>
 					{/if}
 				</div>
 			{/each}
