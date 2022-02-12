@@ -2,6 +2,8 @@
 	import {ISOtoDate} from "$lib/utils"
 
 	export const prerender = true;
+	export const router = false;
+	
 	export const load = async ({ fetch }) => {
 		try {
 			const [/*r_start_time, r_end_time,*/ r_events] = await Promise.all([

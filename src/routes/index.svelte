@@ -1,5 +1,7 @@
 <script lang="ts" context="module">
 	export const prerender = true;
+	export const router = false;
+	
 	import {ISOtoDate} from "$lib/utils"
 	export const load = async ({ fetch }) => {
 		try {
