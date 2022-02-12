@@ -1,7 +1,7 @@
 {
     "title": "ShefJam 8",
     "start_time":   "2022-02-11T18:00:00+00:00",
-    "end_time":     "2022-02-13T14:00:00+00:00",
+    "end_time":     "2022-02-13T12:00:00+00:00",
     "events": [
         {
             "title" : "Introduction Talk",
@@ -18,11 +18,13 @@
         },
         {
             "title" : "Breakfast",
-            "time" : "2022-02-12T08:00:00+00:00"
+            "time" : "2022-02-12T08:00:00+00:00",
+            "description": "Assorted pastries and fruits"
         },
         {
             "title" : "Lunch",
-            "time" : "2022-02-12T13:00:00+00:00"
+            "time" : "2022-02-12T13:00:00+00:00",
+            "description": "Subway Sandwiches"
         },
         {
             "title" : "Coding Event",
@@ -30,19 +32,23 @@
         },
         {
             "title" : "Dinner",
-            "time" : "2022-02-12T19:00:00+00:00"
+            "time" : "2022-02-12T19:00:00+00:00",
+            "description": "Burritos"
         },
         {
-            "title" : "Social Event 2",
-            "time" : "2022-02-12T21:00:00+00:00"
+            "title" : "Social Event 2.0",
+            "time" : "2022-02-12T21:00:00+00:00",
+            "description" : "A break from coding to take part in a social activity or game (e.g. werewolf)."
         },
         {
             "title" : "Breakfast",
-            "time" : "2022-02-13T08:00:00+00:00"
+            "time" : "2022-02-13T08:00:00+00:00",
+            "description": "Assorted pastries and fruits"
         },
         {
             "title": "End of Coding",
-            "time" : "2022-02-13T12:00:00+00:00"
+            "time" : "2022-02-13T12:00:00+00:00",
+            "description": "End of the coding, judging begins"
         },
         {
             "title" : "Prizegiving",
